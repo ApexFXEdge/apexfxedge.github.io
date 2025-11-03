@@ -5,79 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apex FX Trader's Edge - Free Forex Tools</title>
     <style>
+        :root {
+            --bg-color: #121212;
+            --container-bg: rgba(30, 30, 30, 0.9);
+            --text-color: #e0e0e0;
+            --text-color-secondary: #a0a0a0;
+            --accent-color: #00bfff;
+            --border-color: #444;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
-            background-color: #121212;
-            color: #e0e0e0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             padding: 20px;
             margin: 0;
-
-            /* --- NEW BACKGROUND STYLES --- */
-        background-image: url('/images/bg_trading_chart.png'); /* Adjust path if needed */
-        background-size: cover; /* Cover the entire viewport */
-        background-position: center center; /* Center the image */
-        background-repeat: no-repeat; /* Don't repeat the image */
-        background-attachment: fixed; /* Keep image fixed when scrolling */
-        /* --- END NEW BACKGROUND STYLES --- */
-            
+            background-image: url('/images/bg_trading_chart.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
         }
         .container {
-            max-width: 700px;
+            max-width: 800px;
             margin: 40px auto;
             padding: 30px;
-            background-color: #1e1e1e;
+            background-color: var(--container-bg);
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.4);
         }
         nav {
             text-align: center;
             margin-bottom: 30px;
-            border-bottom: 1px solid var(--border-color, #444);
+            border-bottom: 1px solid var(--border-color);
             padding-bottom: 20px;
         }
         nav a {
-            color: #f0f0f0;
+            color: var(--text-color);
             text-decoration: none;
             font-weight: 600;
             margin: 0 15px;
             font-size: 1.1em;
         }
-        nav a:hover, .footer a:hover {
-            color: #00bfff;
+        nav a:hover, .footer a:hover, .feature-item a:hover {
+            color: var(--accent-color);
         }
         h1 {
-            color: #00bfff;
+            color: var(--accent-color);
             text-align: center;
             font-size: 1.3em;
+            margin-bottom: 30px;
         }
-        p, li {
-            font-size: 1.1em;
-            margin-bottom: 20px;
+        
+        /* --- NEW FEATURE GRID --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
         }
-        ul {
-            margin-left: 20px;
-            padding-left: 15px;
+        .feature-item {
+            background-color: rgba(44, 44, 44, 0.7);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
         }
-        li {
-            margin-bottom: 10px;
-        }
-        .button-container {
-            text-align: center;
-            margin-top: 30px;
-        }
-        .button {
-            display: inline-block;
-            padding: 12px 25px;
+        .feature-item h3 {
+            margin-top: 0;
             font-size: 1.2em;
-            font-weight: bold;
-            color: #ffffff;
-            background-color: #00bfff;
-            text-decoration: none;
-            border-radius: 5px;
-            text-align: center;
+            color: var(--text-color);
         }
-        /* --- UPDATED FOOTER CSS --- */
+        .feature-item p {
+            font-size: 0.95em;
+            color: var(--text-color-secondary);
+            margin-bottom: 15px;
+        }
+        .feature-item a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        /* --- NEW LIVE CHARTS SECTION --- */
+        .charts-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+        .charts-section h2 {
+            text-align: center;
+            color: var(--accent-color);
+        }
+
+        /* --- UPDATED FOOTER --- */
         .footer {
             text-align: center;
             margin-top: 40px;
@@ -88,11 +108,22 @@
         }
         .footer p {
             margin: 10px 0; 
-            font-size: 1em; /* Make footer p match footer font-size */
+            font-size: 1em;
         }
         .footer a {
             color: #999;
             text-decoration: underline;
+        }
+
+        /* Responsive for mobile */
+        @media (max-width: 600px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
         }
     </style>
 </head>
@@ -104,26 +135,97 @@
             <a href="/">Home</a>
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
-            <a href="https://apexfxedge.github.io/traders-edge/" class="button">Go to App</a>
         </nav>
         
-        <h1>Welcome to Apex FX Trader's Edge</h1>
+        <h1>Apex FX Trader's Edge</h1>
         
-        <p>This site provides a free suite of essential, powerful, and easy-to-use tools for Forex traders. Our goal is to help you manage your risk, plan your trades, and stay on top of market events.</p>
-        
-        <p>Inside our free toolkit, you will find:</p>
-        
-        <ul>
-            <li>A <strong>Profit Calculator</strong> to precisely determine your R:R Ratio or Lot Size based on your exact risk parameters.</li>
-            <li>A <strong>Compounding Calculator</strong> to project your potential account growth over multiple periods.</li>
-            <li>A live <strong>Economic Calendar</strong>, pre-filtered for medium and high-impact news, so you're never caught off guard.</li>
-        </ul>
-        
+        <div class="features-grid">
+            <div class="feature-item">
+                <h3>🧮 Trading Calculators</h3>
+                <p>Access our free calculators, including Position Sizing, Compounding, and TP Price tools to plan your trades.</p>
+                <a href="https://apexfxedge.github.io/traders-edge/" target="_blank">Open Calculators &rarr;</a>
+            </div>
+            
+            <div class="feature-item">
+                <h3>🗓️ Real-time Economic Calendar</h3>
+                <p>Stay ahead of market-moving events with our built-in calendar, pre-filtered for medium and high-impact news.</p>
+                <a href="https://apexfxedge.github.io/traders-edge/" target="_blank">View Calendar &rarr;</a>
+            </div>
+
+            <div class="feature-item">
+                <h3>💬 24/5 Live Support</h3>
+                <p>Have questions? Our support team is available around the clock to help you with any inquiries.</p>
+                <a href="contact.html">Contact Us &rarr;</a>
+            </div>
+
+            <div class="feature-item">
+                <h3>💰 FX Rebates & Discounts</h3>
+                <p>Check out our recommended partners for exclusive fee discounts, rebates, and platform sign-up bonuses.</p>
+                <a href="https://apexfxedge.github.io/traders-edge/" target="_blank">View Partners &rarr;</a>
+            </div>
+        </div>
+
+        <div class="charts-section">
+            <h2>Live Market Overview</h2>
+            
+            <div class="tradingview-widget-container" style="height: 450px; width: 100%;">
+              <div class="tradingview-widget-container__widget" style="height: 100%; width: 100%;"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+              {
+                "colorTheme": "dark",
+                "dateRange": "12M",
+                "showChart": true,
+                "locale": "en",
+                "width": "100%",
+                "height": "100%",
+                "largeChartUrl": "",
+                "isTransparent": true,
+                "showSymbolLogo": true,
+                "showFloatingTooltip": false,
+                "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
+                "plotLineColorFalling": "rgba(41, 98, 255, 1)",
+                "gridLineColor": "rgba(42, 46, 57, 0)",
+                "scaleFontColor": "rgba(120, 123, 134, 1)",
+                "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+                "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+                "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
+                "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+                "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
+                "tabs": [
+                  {
+                    "title": "Forex",
+                    "symbols": [
+                      { "s": "FX:EURUSD" }, { "s": "FX:GBPUSD" }, { "s": "FX:USDJPY" }, 
+                      { "s": "FX:AUDUSD" }, { "s": "FX:USDCAD" }, { "s": "FX:USDCHF" }
+                    ],
+                    "originalTitle": "Forex"
+                  },
+                  {
+                    "title": "Indices",
+                    "symbols": [
+                      { "s": "FOREXCOM:SPXUSD" }, { "s": "FOREXCOM:NSXUSD" }, { "s": "FOREXCOM:DJI" }, 
+                      { "s": "INDEX:DEU40" }, { "s": "FOREXCOM:UKXGBP" }
+                    ],
+                    "originalTitle": "Indices"
+                  },
+                  {
+                    "title": "Commodities",
+                    "symbols": [
+                      { "s": "OANDA:XAUUSD" }, { "s": "OANDA:XAGUSD" }, { "s": "TVC:USOIL" }
+                    ],
+                    "originalTitle": "Commodities"
+                  }
+                ]
+              }
+              </script>
+            </div>
+            </div>
+
         <div class="footer">
             <p>Risk Warning: Trading involves substantial risks, including complete possible loss of funds and other losses and is not suitable for everyone.</p>
             <p>©2025 - ApexFX | <a href="https://apexfxedge.github.io/traders-edge/privacy.html" target="_blank">Privacy Policy</a></p>
         </div>
     </div>
-
-</body>
+    
+    </body>
 </html>
