@@ -21,7 +21,6 @@
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.4);
         }
-        /* --- NEW NAVIGATION MENU --- */
         nav {
             text-align: center;
             margin-bottom: 30px;
@@ -35,10 +34,9 @@
             margin: 0 15px;
             font-size: 1.1em;
         }
-        nav a:hover {
+        nav a:hover, .footer a:hover {
             color: #00bfff;
         }
-        /* --- END NEW STYLES --- */
         h1 {
             color: #00bfff;
             text-align: center;
@@ -70,14 +68,21 @@
             border-radius: 5px;
             text-align: center;
         }
+        /* --- UPDATED FOOTER CSS --- */
         .footer {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 40px;
             font-size: 0.9em;
+            color: #999; 
+            border-top: 1px solid #444;
+            padding-top: 20px;
+        }
+        .footer p {
+            margin: 10px 0; 
+            font-size: 1em; /* Make footer p match footer font-size */
         }
         .footer a {
             color: #999;
-            margin: 0 10px;
             text-decoration: underline;
         }
     </style>
@@ -106,7 +111,8 @@
         </ul>
         
         <div class="footer">
-            <a href="https://apexfxedge.github.io/traders-edge/privacy.html" target="_blank">Privacy Policy</a>
+            <p>Risk Warning: Trading involves substantial risks, including complete possible loss of funds and other losses and is not suitable for everyone.</p>
+            <p>©2025 - ApexFX | <a href="https://apexfxedge.github.io/traders-edge/privacy.html" target="_blank">Privacy Policy</a></p>
         </div>
     </div>
 
